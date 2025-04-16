@@ -43,8 +43,8 @@ except Thrift.TException as tx:
 EOF
 }
 
-# Run for 35 outputs
-for city_id in {1..35}; do
+# Run for 100 outputs
+for city_id in {1..100}; do
     make_request $city_id
 done
 
