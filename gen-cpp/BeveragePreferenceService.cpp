@@ -4,19 +4,19 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-#include "OrderBeverageService.h"
+#include "BeveragePreferenceService.h"
 
 namespace vending_machine {
 
 
-OrderBeverageService_PlaceOrder_args::~OrderBeverageService_PlaceOrder_args() noexcept {
+BeveragePreferenceService_PlaceOrder_args::~BeveragePreferenceService_PlaceOrder_args() noexcept {
 }
 
-OrderBeverageService_PlaceOrder_args::OrderBeverageService_PlaceOrder_args() noexcept
-   : city(0) {
+BeveragePreferenceService_PlaceOrder_args::BeveragePreferenceService_PlaceOrder_args() noexcept
+   : btype(static_cast<BeverageType::type>(0)) {
 }
 
-uint32_t OrderBeverageService_PlaceOrder_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t BeveragePreferenceService_PlaceOrder_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -38,9 +38,11 @@ uint32_t OrderBeverageService_PlaceOrder_args::read(::apache::thrift::protocol::
     switch (fid)
     {
       case 1:
-        if (ftype == ::apache::thrift::protocol::T_I64) {
-          xfer += iprot->readI64(this->city);
-          this->__isset.city = true;
+        if (ftype == ::apache::thrift::protocol::T_I32) {
+          int32_t ecast8;
+          xfer += iprot->readI32(ecast8);
+          this->btype = static_cast<BeverageType::type>(ecast8);
+          this->__isset.btype = true;
         } else {
           xfer += iprot->skip(ftype);
         }
@@ -57,13 +59,13 @@ uint32_t OrderBeverageService_PlaceOrder_args::read(::apache::thrift::protocol::
   return xfer;
 }
 
-uint32_t OrderBeverageService_PlaceOrder_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t BeveragePreferenceService_PlaceOrder_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("OrderBeverageService_PlaceOrder_args");
+  xfer += oprot->writeStructBegin("BeveragePreferenceService_PlaceOrder_args");
 
-  xfer += oprot->writeFieldBegin("city", ::apache::thrift::protocol::T_I64, 1);
-  xfer += oprot->writeI64(this->city);
+  xfer += oprot->writeFieldBegin("btype", ::apache::thrift::protocol::T_I32, 1);
+  xfer += oprot->writeI32(static_cast<int32_t>(this->btype));
   xfer += oprot->writeFieldEnd();
 
   xfer += oprot->writeFieldStop();
@@ -72,17 +74,17 @@ uint32_t OrderBeverageService_PlaceOrder_args::write(::apache::thrift::protocol:
 }
 
 
-OrderBeverageService_PlaceOrder_pargs::~OrderBeverageService_PlaceOrder_pargs() noexcept {
+BeveragePreferenceService_PlaceOrder_pargs::~BeveragePreferenceService_PlaceOrder_pargs() noexcept {
 }
 
 
-uint32_t OrderBeverageService_PlaceOrder_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t BeveragePreferenceService_PlaceOrder_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("OrderBeverageService_PlaceOrder_pargs");
+  xfer += oprot->writeStructBegin("BeveragePreferenceService_PlaceOrder_pargs");
 
-  xfer += oprot->writeFieldBegin("city", ::apache::thrift::protocol::T_I64, 1);
-  xfer += oprot->writeI64((*(this->city)));
+  xfer += oprot->writeFieldBegin("btype", ::apache::thrift::protocol::T_I32, 1);
+  xfer += oprot->writeI32(static_cast<int32_t>((*(this->btype))));
   xfer += oprot->writeFieldEnd();
 
   xfer += oprot->writeFieldStop();
@@ -91,14 +93,14 @@ uint32_t OrderBeverageService_PlaceOrder_pargs::write(::apache::thrift::protocol
 }
 
 
-OrderBeverageService_PlaceOrder_result::~OrderBeverageService_PlaceOrder_result() noexcept {
+BeveragePreferenceService_PlaceOrder_result::~BeveragePreferenceService_PlaceOrder_result() noexcept {
 }
 
-OrderBeverageService_PlaceOrder_result::OrderBeverageService_PlaceOrder_result() noexcept
+BeveragePreferenceService_PlaceOrder_result::BeveragePreferenceService_PlaceOrder_result() noexcept
    : success() {
 }
 
-uint32_t OrderBeverageService_PlaceOrder_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t BeveragePreferenceService_PlaceOrder_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -147,11 +149,11 @@ uint32_t OrderBeverageService_PlaceOrder_result::read(::apache::thrift::protocol
   return xfer;
 }
 
-uint32_t OrderBeverageService_PlaceOrder_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t BeveragePreferenceService_PlaceOrder_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("OrderBeverageService_PlaceOrder_result");
+  xfer += oprot->writeStructBegin("BeveragePreferenceService_PlaceOrder_result");
 
   if (this->__isset.success) {
     xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
@@ -168,11 +170,11 @@ uint32_t OrderBeverageService_PlaceOrder_result::write(::apache::thrift::protoco
 }
 
 
-OrderBeverageService_PlaceOrder_presult::~OrderBeverageService_PlaceOrder_presult() noexcept {
+BeveragePreferenceService_PlaceOrder_presult::~BeveragePreferenceService_PlaceOrder_presult() noexcept {
 }
 
 
-uint32_t OrderBeverageService_PlaceOrder_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t BeveragePreferenceService_PlaceOrder_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -221,19 +223,19 @@ uint32_t OrderBeverageService_PlaceOrder_presult::read(::apache::thrift::protoco
   return xfer;
 }
 
-void OrderBeverageServiceClient::PlaceOrder(std::string& _return, const int64_t city)
+void BeveragePreferenceServiceClient::PlaceOrder(std::string& _return, const BeverageType::type btype)
 {
-  send_PlaceOrder(city);
+  send_PlaceOrder(btype);
   recv_PlaceOrder(_return);
 }
 
-void OrderBeverageServiceClient::send_PlaceOrder(const int64_t city)
+void BeveragePreferenceServiceClient::send_PlaceOrder(const BeverageType::type btype)
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("PlaceOrder", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  OrderBeverageService_PlaceOrder_pargs args;
-  args.city = &city;
+  BeveragePreferenceService_PlaceOrder_pargs args;
+  args.btype = &btype;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -241,7 +243,7 @@ void OrderBeverageServiceClient::send_PlaceOrder(const int64_t city)
   oprot_->getTransport()->flush();
 }
 
-void OrderBeverageServiceClient::recv_PlaceOrder(std::string& _return)
+void BeveragePreferenceServiceClient::recv_PlaceOrder(std::string& _return)
 {
 
   int32_t rseqid = 0;
@@ -266,7 +268,7 @@ void OrderBeverageServiceClient::recv_PlaceOrder(std::string& _return)
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  OrderBeverageService_PlaceOrder_presult result;
+  BeveragePreferenceService_PlaceOrder_presult result;
   result.success = &_return;
   result.read(iprot_);
   iprot_->readMessageEnd();
@@ -282,7 +284,7 @@ void OrderBeverageServiceClient::recv_PlaceOrder(std::string& _return)
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "PlaceOrder failed: unknown result");
 }
 
-bool OrderBeverageServiceProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
+bool BeveragePreferenceServiceProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
   ProcessMap::iterator pfn;
   pfn = processMap_.find(fname);
   if (pfn == processMap_.end()) {
@@ -301,37 +303,37 @@ bool OrderBeverageServiceProcessor::dispatchCall(::apache::thrift::protocol::TPr
   return true;
 }
 
-void OrderBeverageServiceProcessor::process_PlaceOrder(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void BeveragePreferenceServiceProcessor::process_PlaceOrder(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = nullptr;
   if (this->eventHandler_.get() != nullptr) {
-    ctx = this->eventHandler_->getContext("OrderBeverageService.PlaceOrder", callContext);
+    ctx = this->eventHandler_->getContext("BeveragePreferenceService.PlaceOrder", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "OrderBeverageService.PlaceOrder");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "BeveragePreferenceService.PlaceOrder");
 
   if (this->eventHandler_.get() != nullptr) {
-    this->eventHandler_->preRead(ctx, "OrderBeverageService.PlaceOrder");
+    this->eventHandler_->preRead(ctx, "BeveragePreferenceService.PlaceOrder");
   }
 
-  OrderBeverageService_PlaceOrder_args args;
+  BeveragePreferenceService_PlaceOrder_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != nullptr) {
-    this->eventHandler_->postRead(ctx, "OrderBeverageService.PlaceOrder", bytes);
+    this->eventHandler_->postRead(ctx, "BeveragePreferenceService.PlaceOrder", bytes);
   }
 
-  OrderBeverageService_PlaceOrder_result result;
+  BeveragePreferenceService_PlaceOrder_result result;
   try {
-    iface_->PlaceOrder(result.success, args.city);
+    iface_->PlaceOrder(result.success, args.btype);
     result.__isset.success = true;
   } catch (ServiceException &se) {
     result.se = std::move(se);
     result.__isset.se = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != nullptr) {
-      this->eventHandler_->handlerError(ctx, "OrderBeverageService.PlaceOrder");
+      this->eventHandler_->handlerError(ctx, "BeveragePreferenceService.PlaceOrder");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
@@ -344,7 +346,7 @@ void OrderBeverageServiceProcessor::process_PlaceOrder(int32_t seqid, ::apache::
   }
 
   if (this->eventHandler_.get() != nullptr) {
-    this->eventHandler_->preWrite(ctx, "OrderBeverageService.PlaceOrder");
+    this->eventHandler_->preWrite(ctx, "BeveragePreferenceService.PlaceOrder");
   }
 
   oprot->writeMessageBegin("PlaceOrder", ::apache::thrift::protocol::T_REPLY, seqid);
@@ -354,31 +356,31 @@ void OrderBeverageServiceProcessor::process_PlaceOrder(int32_t seqid, ::apache::
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != nullptr) {
-    this->eventHandler_->postWrite(ctx, "OrderBeverageService.PlaceOrder", bytes);
+    this->eventHandler_->postWrite(ctx, "BeveragePreferenceService.PlaceOrder", bytes);
   }
 }
 
-::std::shared_ptr< ::apache::thrift::TProcessor > OrderBeverageServiceProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
-  ::apache::thrift::ReleaseHandler< OrderBeverageServiceIfFactory > cleanup(handlerFactory_);
-  ::std::shared_ptr< OrderBeverageServiceIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
-  ::std::shared_ptr< ::apache::thrift::TProcessor > processor(new OrderBeverageServiceProcessor(handler));
+::std::shared_ptr< ::apache::thrift::TProcessor > BeveragePreferenceServiceProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
+  ::apache::thrift::ReleaseHandler< BeveragePreferenceServiceIfFactory > cleanup(handlerFactory_);
+  ::std::shared_ptr< BeveragePreferenceServiceIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
+  ::std::shared_ptr< ::apache::thrift::TProcessor > processor(new BeveragePreferenceServiceProcessor(handler));
   return processor;
 }
 
-void OrderBeverageServiceConcurrentClient::PlaceOrder(std::string& _return, const int64_t city)
+void BeveragePreferenceServiceConcurrentClient::PlaceOrder(std::string& _return, const BeverageType::type btype)
 {
-  int32_t seqid = send_PlaceOrder(city);
+  int32_t seqid = send_PlaceOrder(btype);
   recv_PlaceOrder(_return, seqid);
 }
 
-int32_t OrderBeverageServiceConcurrentClient::send_PlaceOrder(const int64_t city)
+int32_t BeveragePreferenceServiceConcurrentClient::send_PlaceOrder(const BeverageType::type btype)
 {
   int32_t cseqid = this->sync_->generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(this->sync_.get());
   oprot_->writeMessageBegin("PlaceOrder", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  OrderBeverageService_PlaceOrder_pargs args;
-  args.city = &city;
+  BeveragePreferenceService_PlaceOrder_pargs args;
+  args.btype = &btype;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -389,7 +391,7 @@ int32_t OrderBeverageServiceConcurrentClient::send_PlaceOrder(const int64_t city
   return cseqid;
 }
 
-void OrderBeverageServiceConcurrentClient::recv_PlaceOrder(std::string& _return, const int32_t seqid)
+void BeveragePreferenceServiceConcurrentClient::recv_PlaceOrder(std::string& _return, const int32_t seqid)
 {
 
   int32_t rseqid = 0;
@@ -427,7 +429,7 @@ void OrderBeverageServiceConcurrentClient::recv_PlaceOrder(std::string& _return,
         using ::apache::thrift::protocol::TProtocolException;
         throw TProtocolException(TProtocolException::INVALID_DATA);
       }
-      OrderBeverageService_PlaceOrder_presult result;
+      BeveragePreferenceService_PlaceOrder_presult result;
       result.success = &_return;
       result.read(iprot_);
       iprot_->readMessageEnd();

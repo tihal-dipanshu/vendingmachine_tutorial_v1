@@ -1,0 +1,35 @@
+City ID: 1, Beverage: soda
+City ID: 2, Beverage: espresso
+City ID: 3, Beverage: soda
+City ID: 4, Beverage: cappuccino
+City ID: 5, Beverage: lemonade
+City ID: 6, Beverage: espresso
+City ID: 7, Beverage: iced tea
+City ID: 8, Beverage: espresso
+City ID: 9, Beverage: iced tea
+City ID: 10, Beverage: espresso
+City ID: 11, Beverage: iced tea
+City ID: 12, Beverage: latte
+City ID: 13, Beverage: lemonade
+City ID: 14, Beverage: espresso
+City ID: 15, Beverage: soda
+City ID: 16, Beverage: latte
+City ID: 17, Beverage: lemonade
+City ID: 18, Beverage: latte
+City ID: 19, Beverage: iced tea
+City ID: 20, Beverage: cappuccino
+City ID: 21, Beverage: soda
+City ID: 22, Beverage: cappuccino
+City ID: 23, Beverage: iced tea
+City ID: 24, Beverage: cappuccino
+City ID: 25, Beverage: soda
+City ID: 26, Beverage: espresso
+City ID: 27, Beverage: iced tea
+City ID: 28, Beverage: cappuccino
+City ID: 29, Beverage: soda
+City ID: 30, Beverage: cappuccino
+City ID: 31, Beverage: lemonade
+City ID: 32, Beverage: cappuccino
+City ID: 33, Beverage: lemonade
+City ID: 34, Beverage: latte
+City ID: 35, Beverage: soda

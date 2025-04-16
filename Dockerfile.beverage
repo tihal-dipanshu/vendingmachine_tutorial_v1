@@ -1,0 +1,14 @@
+FROM python:3.6
+
+WORKDIR /app
+
+# Copy the necessary files
+COPY . /app/
+
+# Install any required dependencies
+RUN pip install thrift
+
+# Set PYTHONPATH to include the gen-py directory
+ENV PYTHONPATH=/app/gen-py
+
+CMD ["python3", "gen-py/vending_machine/beverage_service.py"] 

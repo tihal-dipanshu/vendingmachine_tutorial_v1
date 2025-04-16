@@ -5,19 +5,41 @@ services:
     hostname: order-beverage-service
     restart: always
     entrypoint: OrderBeverageService
+    networks:
+      - vending-machine-net
 
   weather-service:
     image: probir/vending-machine-microservices:latest
     hostname: weather-service
     restart: always
     entrypoint: WeatherService
-  nginx-thrift:
-    image: yg397/openresty-thrift:xenial
-    hostname: nginx-thrift
+    networks:
+      - vending-machine-net
+
+  beverage-preference-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.beverage
     ports:
-      - 8080:8080
-    restart: always
-    volumes:
-      - ./nginx_reverse_proxy/lua-scripts:/usr/local/openresty/nginx/lua-scripts
-      - ./nginx_reverse_proxy/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
-      - ./gen-lua:/gen-lua
+      - "9092:9092"
+    networks:
+      - vending-machine-net
+
+#  nginx-thrift:
+#    image: yg397/openresty-thrift:xenial
+#    hostname: nginx-thrift
+#    ports:
+#      - 8080:8080
+#    restart: always
+#    volumes:
+#      - ./nginx_reverse_proxy/lua-scripts:/usr/local/openresty/nginx/lua-scripts
+#      - ./nginx_reverse_proxy/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+#      - ./gen-lua:/gen-lua
+
+networks:
+  vending-machine-net:
+    driver: bridge
+
+volumes:
+  beverage_service_code:
+    driver: local
